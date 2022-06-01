@@ -7,6 +7,13 @@
 		<div class="card-body">
 
 			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Foto</label>
+				<div class="col-sm-6">
+				<form action="pengguna/aksi.php" method="post" enctype="multipart/form-data">
+					<input type="file" id="foto" name="foto" placeholder="Foto" required>
+				</div>
+			</div>
+			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Nama User</label>
 				<div class="col-sm-6">
 					<input type="text" class="form-control" id="nama_pengguna" name="nama_pengguna" placeholder="Nama user" required>
@@ -50,11 +57,12 @@
 
     if (isset ($_POST['Simpan'])){
     //mulai proses simpan data
-        $sql_simpan = "INSERT INTO tb_pengguna (nama_pengguna,username,password,level) VALUES (
+        $sql_simpan = "INSERT INTO tb_pengguna (nama_pengguna,username,foto,password,level) VALUES (
         '".$_POST['nama_pengguna']."',
         '".$_POST['username']."',
         '".$_POST['password']."',
-        '".$_POST['level']."')";
+        '".$_POST['level']."',
+        '".$_POST['foto']."')";
         $query_simpan = mysqli_query($koneksi, $sql_simpan);
         mysqli_close($koneksi);
 

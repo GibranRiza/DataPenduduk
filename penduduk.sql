@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2022 at 02:22 PM
+-- Generation Time: Jun 01, 2022 at 04:04 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -33,6 +33,13 @@ CREATE TABLE `tb_anggota` (
   `Id_pend` int(11) NOT NULL,
   `hubungan` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_anggota`
+--
+
+INSERT INTO `tb_anggota` (`id_anggota`, `id_kk`, `Id_pend`, `hubungan`) VALUES
+(19, 2, 8, 'Anak');
 
 -- --------------------------------------------------------
 
@@ -142,20 +149,22 @@ INSERT INTO `tb_pdd` (`id_pend`, `nik`, `nama`, `tempat_lh`, `tgl_lh`, `jekel`, 
 --
 
 CREATE TABLE `tb_pengguna` (
-  `id_pengguhna` int(11) NOT NULL,
+  `id_pengguna` int(11) NOT NULL,
   `nama_pengguna` varchar(200) NOT NULL,
   `username` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
-  `level` enum('admin','ketua','','') NOT NULL
+  `level` enum('admin','ketua','','') NOT NULL,
+  `foto` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_pengguna`
 --
 
-INSERT INTO `tb_pengguna` (`id_pengguhna`, `nama_pengguna`, `username`, `password`, `level`) VALUES
-(1, 'GIBRAN', 'admin', 'admin', 'admin'),
-(2, 'pudidi', 'pudidi', 'pudidi', 'ketua');
+INSERT INTO `tb_pengguna` (`id_pengguna`, `nama_pengguna`, `username`, `password`, `level`, `foto`) VALUES
+(1, 'GIBRAN', 'admin', 'admin', 'admin', ''),
+(2, 'pudidi', 'pudidi', 'pudidi', 'ketua', ''),
+(7, 'q', 'q', 'Administrator', '', 'q');
 
 -- --------------------------------------------------------
 
@@ -229,7 +238,7 @@ ALTER TABLE `tb_pdd`
 -- Indexes for table `tb_pengguna`
 --
 ALTER TABLE `tb_pengguna`
-  ADD PRIMARY KEY (`id_pengguhna`);
+  ADD PRIMARY KEY (`id_pengguna`);
 
 --
 -- Indexes for table `tb_pindah`
@@ -246,7 +255,7 @@ ALTER TABLE `tb_pindah`
 -- AUTO_INCREMENT for table `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tb_datang`
@@ -282,7 +291,7 @@ ALTER TABLE `tb_pdd`
 -- AUTO_INCREMENT for table `tb_pengguna`
 --
 ALTER TABLE `tb_pengguna`
-  MODIFY `id_pengguhna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_pindah`
